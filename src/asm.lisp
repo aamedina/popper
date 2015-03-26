@@ -1,4 +1,4 @@
-;; package.lisp
+;; asm.lisp
 
 ;; Copyright 2015 Adrian Medina.
 
@@ -15,6 +15,8 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-(defpackage :popper
+(defpackage :popper.asm
   (:use :common-lisp))
+
+(in-package :popper.asm)
 

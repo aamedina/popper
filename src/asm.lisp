@@ -16,7 +16,13 @@
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 (defpackage :popper.asm
-  (:use :common-lisp))
+  (:use :common-lisp
+        :cffi))
 
 (in-package :popper.asm)
 
+(define-foreign-library llvm
+  (:darwin "libLLVM.dylib")
+  (t (:default "libLLVM")))
+
+(use-foreign-library llvm)

@@ -25,4 +25,9 @@
   (:darwin "libLLVM.dylib")
   (t (:default "libLLVM")))
 
+(define-foreign-library clang
+  (:darwin "libclang.dylib")
+  (t (:default "libclang")))
+
 (use-foreign-library llvm)
+(use-foreign-library clang)

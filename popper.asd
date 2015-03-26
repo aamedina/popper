@@ -6,5 +6,6 @@
   :serial t
   :pathname "src"
   :components ((:file "asm")
+               (:file "asm/abi")
                (:file "popper")))
 

@@ -1,4 +1,4 @@
-;; asm.lisp
+;; asm/llvm.lisp
 
 ;; Copyright 2015 Adrian Medina.
 
@@ -15,8 +15,8 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-(defpackage :popper.asm
-  (:use :common-lisp
-        :cffi))
+(define-foreign-library llvm
+  (:darwin "libLLVM.dylib")
+  (t (:default "libLLVM")))
 
-(in-package :popper.asm)
+(use-foreign-library llvm)

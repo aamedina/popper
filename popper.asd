@@ -7,5 +7,7 @@
   :pathname "src"
   :components ((:file "asm")
                (:file "asm/abi")
+               (:file "asm/llvm")
+               (:file "asm/clang")
                (:file "popper")))
 

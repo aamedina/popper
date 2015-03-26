@@ -1,4 +1,4 @@
-;; asm.lisp
+;; asm/clang.lisp
 
 ;; Copyright 2015 Adrian Medina.
 
@@ -15,8 +15,10 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-(defpackage :popper.asm
-  (:use :common-lisp
-        :cffi))
-
 (in-package :popper.asm)
+
+(define-foreign-library clang
+  (:darwin "libclang.dylib")
+  (t (:default "libclang")))
+
+(use-foreign-library clang)

@@ -37,9 +37,11 @@
 ;; extern LIBCXXABI_NORETURN void __cxa_throw(void * thrown_exception,
 ;;         std::type_info * tinfo, void (*dest)(void *));
 
+(defctype type-info :pointer)
+
 (defcfun ("__cxa_throw" throw-exception) :void
   (exception :pointer)
-  (type-info :pointer)
+  (info type-info)
   (dest :pointer))
 
 ;; // 2.5.3 Exception Handlers
@@ -56,7 +58,7 @@
 
 (defcfun ("__cxa_end_catch" end-catch) :pointer)
 
-(defcfun ("__cxa_current_exception_type" current-exception-type) :pointer)
+(defcfun ("__cxa_current_exception_type" current-exception-type) type-info)
 
 ;; // 2.5.4 Rethrowing Exceptions
 ;; extern LIBCXXABI_NORETURN void __cxa_rethrow();
@@ -249,7 +251,7 @@
 
 (defcfun ("__cxa_demangle" demangle) :string
   (mangled-name :string)
-  (output-buffer :string)
+  (output-buffer :pointer)
   (length :pointer)
   (status :pointer))
 

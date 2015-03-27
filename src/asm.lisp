@@ -17,6 +17,7 @@
 
 (defpackage :popper.asm
   (:use :common-lisp
+        :alexandria
         :cffi))
 
 (in-package :popper.asm)
